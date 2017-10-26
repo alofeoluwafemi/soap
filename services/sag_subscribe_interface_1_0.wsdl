@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sag_subscribe_manage="http://www.csapi.org/wsdl/parlayx/subscribe/manage/v1_0/interface" xmlns:sag_subscribe_manage_xsd="http://www.csapi.org/schema/parlayx/subscribe/v1_0" xmlns:sag_subscribe_manage_local_xsd="http://www.csapi.org/schema/parlayx/subscribe/manage/v1_0/local" name="sag_subscribe_interface" targetNamespace="http://www.csapi.org/wsdl/parlayx/subscribe/manage/v1_0/interface">
+<wsdl:definitions
+		xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:sag_subscribe_manage="http://www.csapi.org/wsdl/parlayx/subscribe/manage/v1_0/interface" xmlns:sag_subscribe_manage_xsd="http://www.csapi.org/schema/parlayx/subscribe/v1_0" xmlns:sag_subscribe_manage_local_xsd="http://www.csapi.org/schema/parlayx/subscribe/manage/v1_0/local" name="sag_subscribe_interface" targetNamespace="http://www.csapi.org/wsdl/parlayx/subscribe/manage/v1_0/interface">
 	<wsdl:types>
 		<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.csapi.org/schema/parlayx/subscribe/manage/v1_0/local">
 			<xsd:import namespace="http://www.csapi.org/schema/parlayx/subscribe/v1_0" schemaLocation="sag_subscribe_types_1_0.xsd"/>
@@ -95,4 +100,10 @@
 			<wsdl:output message="sag_subscribe_manage:SubscribeManage_unSubscribeProductResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
+
+	<wsdl:service name="SubscribeManageService">
+		<wsdl:port name="SubscribeManage" binding="tns:SubscribeManageBinding">
+			<soap:address location="http://localhost:9080/SubscribeManageService/services/SubscribeManage"/>
+		</wsdl:port>
+	</wsdl:service>
 </wsdl:definitions>
